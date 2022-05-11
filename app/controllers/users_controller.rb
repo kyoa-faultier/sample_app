@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       redirect_to @user
       # redirect_to user_path(@user)
       # redirect_to user_path(@user.id)
-      # redirect_to user_path(1) -> /user/1
+      # redirect_to user_path(1) -> /users/1
     else
       render 'new'
     end
