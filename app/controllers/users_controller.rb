@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  def new
-  end
   
   # GET /users/:id
   def show
