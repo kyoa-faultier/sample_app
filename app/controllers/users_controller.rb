@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     # あたらしいユーザーの保存が成功するか否か
     if @user.save
+      log_in @user
       # リダイレクトするまえにフラッシュする
       flash[:success] = "Welcome to the Sample App!"
       # GET /users/#{@user.id}

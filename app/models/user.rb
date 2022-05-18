@@ -16,4 +16,12 @@ class User < ApplicationRecord
                     #メアドは大文字小文字区別しない
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  
+  # 渡された文字列のハッシュ値を返す
+  # クラスメソッド（スタティックメソッド？）
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 end
